@@ -1,0 +1,8 @@
+{
+    "my_name": "Zahid",
+    "url": "http://localhost:8080/room/1710335101565",
+    "key": "3gSNUazU4LNOiXC-g4V8ghceNK6HRwCtIiG6os7T2Xs=",
+    "receive_time": 2,
+    "my_timezone": "Asia/Dhaka",
+    "date_time_format": "%d-%b-%a %H:%M"    
+}

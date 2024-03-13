@@ -1,18 +1,19 @@
-import pytz
 import json
+import pytz
 import requests
-import configme as con
 from time import sleep
 from pytz import timezone
 from datetime import datetime
 from cryptography.fernet import Fernet
 
-my_timezone = con.my_timezone
-date_time_format = con.date_time_format
-key = con.key
-url = con.url
-my_name = con.my_name
-receive_time = con.receive_time
+with open("configme.txt") as file:
+    data = json.loads(file.read())
+    my_name = data["my_name"]
+    key = data["key"]
+    url = data["url"]
+    my_timezone = data["my_timezone"]
+    date_time_format = data["date_time_format"]
+    receive_time = data["receive_time"]
 
 fernet = Fernet(key)
 timezone = timezone(my_timezone)
@@ -21,9 +22,6 @@ def setTime(t):
 	stamptime = int(float(t))
 	GMT0 = pytz.utc.localize(datetime.utcfromtimestamp(stamptime))
 	return GMT0.astimezone(timezone).strftime(date_time_format)
-
-# if my_name.__len__() != 0:
-# 	requests.post(url, json = { "name": "<<<>>>", "msg": my_name + " has joined the room." } )
 
 j = 0
 while True:
