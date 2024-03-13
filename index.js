@@ -2,6 +2,8 @@ const express = require('express');
 const fs = require('fs');
 const server = express();
 
+const base_url = "https://moray-welcomed-barely.ngrok-free.app"
+
 //bodyParser
 server.use(express.json());
 server.use(express.static('public'));
@@ -48,7 +50,7 @@ server.post('/createRoom', (req, res) => {
       }
     )
     fs.writeFileSync('./rooms/room_details.json', JSON.stringify(old_dtls));
-    res.json({"status": 132, "url": `http://localhost:8080/room/${db_name}`})
+    res.json({"status": 132, "url": `${base_url}/room/${db_name}`})
   }
 })
 
