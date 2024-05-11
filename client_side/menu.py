@@ -5,7 +5,7 @@ from cryptography.fernet import Fernet
 def generateKey():
     return Fernet.generate_key()
 
-base_url   = "https://moray-welcomed-barely.ngrok-free.app"
+base_url   = "http://localhost:8080"
 create_url = base_url + "/createRoom"
 rooms_url  = base_url + "/rooms"
 
@@ -31,7 +31,10 @@ Press 0 - To Exit
     elif n == "2":
         r = json.loads(requests.get(rooms_url).text)
         print("\n")
-        for i in r:
-            print(f'''<<<>>> {i["name"]} - {i["description"]} - Created {i["created"]}''')
+        if len(r) == 0:
+            print("No Chan yet!")
+        else:
+            for i in r:
+                print(f'''<<<>>> {i["name"]} - {i["description"]} - Created {i["created"]}''')
     elif n == "0":
         break

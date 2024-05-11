@@ -2,7 +2,7 @@ const express = require('express');
 const fs = require('fs');
 const server = express();
 
-const base_url = "https://moray-welcomed-barely.ngrok-free.app"
+const base_url = "http://localhost:8080"
 
 //bodyParser
 server.use(express.json());
